@@ -13,6 +13,7 @@ public class Vehiculo {
     private String traccion;
     private Fabricante fabricante;
     private static int CantidadVehiculos = 0;
+    private static List<Vehiculo> vehiculosCreados = new ArrayList<>();
     
     public Vehiculo(String placa,int puertas,int velocidadMaxima,String nombre,double precio,double peso,String traccion,Fabricante fabricante) {
     	this.placa = placa;
@@ -24,6 +25,7 @@ public class Vehiculo {
     	this.traccion = traccion;
     	this.fabricante = fabricante;
     	CantidadVehiculos++;
+    	vehiculosCreados.add(this);
     }
     public static List<Vehiculo> getCreados() {
         List<Vehiculo> vehiculos = new ArrayList<>();
@@ -31,6 +33,9 @@ public class Vehiculo {
         vehiculos.addAll(camionetas);
         vehiculos.addAll(camiones);
         return vehiculos;
+    }
+    public static List<Vehiculo> getCreados() {
+        return vehiculosCreados;
     }
     private static List<Automovil> automoviles = new ArrayList<>();
     private static List<Camioneta> camionetas = new ArrayList<>();
