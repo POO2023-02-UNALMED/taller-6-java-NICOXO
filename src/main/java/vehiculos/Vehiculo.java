@@ -28,13 +28,6 @@ public class Vehiculo {
     	vehiculosCreados.add(this);
     }
     public static List<Vehiculo> getCreados() {
-        List<Vehiculo> vehiculos = new ArrayList<>();
-        vehiculos.addAll(automoviles);
-        vehiculos.addAll(camionetas);
-        vehiculos.addAll(camiones);
-        return vehiculos;
-    }
-    public static List<Vehiculo> getCreados() {
         return vehiculosCreados;
     }
     private static List<Automovil> automoviles = new ArrayList<>();
