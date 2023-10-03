@@ -1,5 +1,7 @@
 package vehiculos;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vehiculo {
     private String placa;
@@ -30,6 +32,9 @@ public class Vehiculo {
         vehiculos.addAll(camiones);
         return vehiculos;
     }
+    private static List<Automovil> automoviles = new ArrayList<>();
+    private static List<Camioneta> camionetas = new ArrayList<>();
+    private static List<Camion> camiones = new ArrayList<>();
 
     public String getPlaca() {
     	return placa;
