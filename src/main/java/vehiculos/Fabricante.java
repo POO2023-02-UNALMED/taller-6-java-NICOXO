@@ -24,7 +24,7 @@ public class Fabricante {
     public void setPais(Pais pais) {
     	this.pais = pais;
     }
-    public static Fabricante fabricanteMayorVentas(Vehiculo[] vehiculos) {
+    public static Fabricante fabricaMayorVentas(Vehiculo[] vehiculos) {
         Map<Fabricante, Integer> ventasPorFabricante = new HashMap<>();
 
         for (Vehiculo vehiculo : vehiculos) {
