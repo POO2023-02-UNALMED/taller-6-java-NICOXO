@@ -15,18 +15,18 @@ public class Pais {
     public void setNombre(String nombre) {
     	this.nombre = nombre;
     }
-    public static String paisMasVendedor(Vehiculo[] vehiculos) {
-        Map<String, Integer> ventasPorPais = new HashMap<>();
+    public static Pais paisMasVendedor(Vehiculo[] vehiculos) {
+        Map<Pais, Integer> ventasPorPais = new HashMap<>();
 
         for (Vehiculo vehiculo : vehiculos) {
-            String nombrePaisFabricante = vehiculo.getFabricante().getPais().getNombre();
-            ventasPorPais.put(nombrePaisFabricante, ventasPorPais.getOrDefault(nombrePaisFabricante, 0) + 1);
+            Pais paisFabricante = vehiculo.getFabricante().getPais();
+            ventasPorPais.put(paisFabricante, ventasPorPais.getOrDefault(paisFabricante, 0) + 1);
         }
 
         int maxVentas = 0;
-        String paisMasVendedor = "";
+        Pais paisMasVendedor = null;
 
-        for (Map.Entry<String, Integer> entry : ventasPorPais.entrySet()) {
+        for (Map.Entry<Pais, Integer> entry : ventasPorPais.entrySet()) {
             if (entry.getValue() > maxVentas) {
                 maxVentas = entry.getValue();
                 paisMasVendedor = entry.getKey();

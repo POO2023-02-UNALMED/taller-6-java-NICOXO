@@ -24,23 +24,24 @@ public class Fabricante {
     public void setPais(Pais pais) {
     	this.pais = pais;
     }
-    public static String fabricanteMayorVentas(Vehiculo[] vehiculos) {
-        Map<String, Integer> ventasPorFabricante = new HashMap<>();
+    public static Fabricante fabricanteMayorVentas(Vehiculo[] vehiculos) {
+        Map<Fabricante, Integer> ventasPorFabricante = new HashMap<>();
 
         for (Vehiculo vehiculo : vehiculos) {
-            String nombreFabricante = vehiculo.getFabricante().getNombre();
-            ventasPorFabricante.put(nombreFabricante, ventasPorFabricante.getOrDefault(nombreFabricante, 0) + 1);
+            Fabricante fabricante = vehiculo.getFabricante();
+            ventasPorFabricante.put(fabricante, ventasPorFabricante.getOrDefault(fabricante, 0) + 1);
         }
 
         int maxVentas = 0;
-        String fabricanteMayorVentas = "";
+        Fabricante fabricanteMayorVentas = null;
 
-        for (Map.Entry<String, Integer> entry : ventasPorFabricante.entrySet()) {
+        for (Map.Entry<Fabricante, Integer> entry : ventasPorFabricante.entrySet()) {
             if (entry.getValue() > maxVentas) {
                 maxVentas = entry.getValue();
                 fabricanteMayorVentas = entry.getKey();
             }
         }
+
         return fabricanteMayorVentas;
     }
 }
