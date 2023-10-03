@@ -26,13 +26,13 @@ public class Vehiculo {
     public String getPlaca() {
     	return placa;
     }
-    public void setPlacta(String placa) {
+    public void setPlaca(String placa) {
     	this.placa = placa;
     }
     public int getPuertas() {
     	return puertas;
     }
-    public void setPuetas(int puertas) {
+    public void setPuertas(int puertas) {
     	this.puertas = puertas;
     }
     public int getVelocidadMaxima() {
