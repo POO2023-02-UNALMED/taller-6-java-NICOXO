@@ -1,7 +1,5 @@
 package vehiculos;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class Vehiculo {
     private String placa;
@@ -82,45 +80,4 @@ public class Vehiculo {
     public static String vehiculosPorTipo() {
     	return String.format("Automoviles: %d\nCamionetas: %d\nCamiones: %d", Automovil.getCantidadAutomoviles(), Camioneta.getCantidadCamionetas(), Camion.getCantidadCamiones());
     }
-    public static String paisMasVendedor(Vehiculo[] vehiculos) {
-        Map<String, Integer> ventasPorPais = new HashMap<>();
-
-        for (Vehiculo vehiculo : vehiculos) {
-            String nombrePaisFabricante = vehiculo.getFabricante().getPais().getNombre();
-            ventasPorPais.put(nombrePaisFabricante, ventasPorPais.getOrDefault(nombrePaisFabricante, 0) + 1);
-        }
-
-        int maxVentas = 0;
-        String paisMasVendedor = "";
-
-        for (Map.Entry<String, Integer> entry : ventasPorPais.entrySet()) {
-            if (entry.getValue() > maxVentas) {
-                maxVentas = entry.getValue();
-                paisMasVendedor = entry.getKey();
-            }
-        }
-
-        return paisMasVendedor;
-    }
-    public static String fabricanteMayorVentas(Vehiculo[] vehiculos) {
-        Map<String, Integer> ventasPorFabricante = new HashMap<>();
-
-        for (Vehiculo vehiculo : vehiculos) {
-            String nombreFabricante = vehiculo.getFabricante().getNombre();
-            ventasPorFabricante.put(nombreFabricante, ventasPorFabricante.getOrDefault(nombreFabricante, 0) + 1);
-        }
-
-        int maxVentas = 0;
-        String fabricanteMayorVentas = "";
-
-        for (Map.Entry<String, Integer> entry : ventasPorFabricante.entrySet()) {
-            if (entry.getValue() > maxVentas) {
-                maxVentas = entry.getValue();
-                fabricanteMayorVentas = entry.getKey();
-            }
-        }
-
-        return fabricanteMayorVentas;
-    }
 }
-

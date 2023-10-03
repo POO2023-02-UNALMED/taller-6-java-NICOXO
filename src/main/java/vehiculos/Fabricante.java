@@ -1,5 +1,7 @@
 package vehiculos;
 
+import java.util.HashMap;
+import java.util.Map;
 
 public class Fabricante {
     private String nombre;
@@ -21,5 +23,24 @@ public class Fabricante {
     }
     public void setPais(Pais pais) {
     	this.pais = pais;
+    }
+    public static String fabricanteMayorVentas(Vehiculo[] vehiculos) {
+        Map<String, Integer> ventasPorFabricante = new HashMap<>();
+
+        for (Vehiculo vehiculo : vehiculos) {
+            String nombreFabricante = vehiculo.getFabricante().getNombre();
+            ventasPorFabricante.put(nombreFabricante, ventasPorFabricante.getOrDefault(nombreFabricante, 0) + 1);
+        }
+
+        int maxVentas = 0;
+        String fabricanteMayorVentas = "";
+
+        for (Map.Entry<String, Integer> entry : ventasPorFabricante.entrySet()) {
+            if (entry.getValue() > maxVentas) {
+                maxVentas = entry.getValue();
+                fabricanteMayorVentas = entry.getKey();
+            }
+        }
+        return fabricanteMayorVentas;
     }
 }
