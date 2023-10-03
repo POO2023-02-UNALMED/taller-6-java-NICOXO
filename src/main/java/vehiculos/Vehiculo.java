@@ -23,6 +23,14 @@ public class Vehiculo {
     	this.fabricante = fabricante;
     	CantidadVehiculos++;
     }
+    public static List<Vehiculo> getCreados() {
+        List<Vehiculo> vehiculos = new ArrayList<>();
+        vehiculos.addAll(automoviles);
+        vehiculos.addAll(camionetas);
+        vehiculos.addAll(camiones);
+        return vehiculos;
+    }
+
     public String getPlaca() {
     	return placa;
     }

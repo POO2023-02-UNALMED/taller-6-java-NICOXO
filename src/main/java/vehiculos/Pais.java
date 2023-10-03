@@ -15,11 +15,12 @@ public class Pais {
     public void setNombre(String nombre) {
     	this.nombre = nombre;
     }
-    public static Pais paisMasVendedor(Vehiculo[] vehiculos) {
+    public static Pais paisMasVendedor() {
         Map<Pais, Integer> ventasPorPais = new HashMap<>();
 
-        for (Vehiculo vehiculo : vehiculos) {
-            Pais paisFabricante = vehiculo.getFabricante().getPais();
+        for (Vehiculo vehiculo : Vehiculo.getCreados()) {
+            Fabricante fabricante = vehiculo.getFabricante();
+            Pais paisFabricante = fabricante.getPais();
             ventasPorPais.put(paisFabricante, ventasPorPais.getOrDefault(paisFabricante, 0) + 1);
         }
 
